@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>품번 최저가 검색</title>
+
+<style>
+body{
+font-family:Arial;
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+text-align:center;
+}
+
+input{
+padding:10px;
+width:300px;
+}
+
+button{
+padding:10px 20px;
+cursor:pointer;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th,td{
+border:1px solid #ddd;
+padding:8px;
+}
+
+th{
+background:#f5f5f5;
+}
+</style>
+</head>
+
+<body>
+
+<h1>품번 최저가 검색 시스템</h1>
+
+<input id="brand" placeholder="브랜드">
+<input id="productNo" placeholder="품번">
+
+<button onclick="searchProduct()">검색</button>
+
+<table id="resultTable">
+<thead>
+<tr>
+<th>브랜드</th>
+<th>품번</th>
+<th>검색결과</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+</table>
+
+<script>
+function searchProduct(){
+
+const brand =
+document.getElementById("brand").value;
+
+const productNo =
+document.getElementById("productNo").value;
+
+const tbody =
+document.querySelector("#resultTable tbody");
+
+tbody.innerHTML += `
+<tr>
+<td>${brand}</td>
+<td>${productNo}</td>
+<td>
+<a target="_blank"
+href="https://search.shopping.naver.com/search/all?query=${brand}%20${productNo}">
+네이버 검색
+</a>
+</td>
+</tr>`;
+}
+</script>
+
+</body>
+</html>
